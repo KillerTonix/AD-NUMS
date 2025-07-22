@@ -8,7 +8,7 @@ $password = $_POST['password'];
 $ldapConn = ldap_connect(LDAP_SERVER, LDAP_PORT);
 ldap_set_option($ldapConn, LDAP_OPT_PROTOCOL_VERSION, 3);
 
-if ($ldapConn && @ldap_bind($ldapConn, "$username@your.domain.local", $password)) {
+if ($ldapConn && @ldap_bind($ldapConn, "$username@artur.am", $password)) {
     $filter = "(sAMAccountName=$username)";
     $result = ldap_search($ldapConn, LDAP_BASE_DN, $filter, ['memberof']);
     $entries = ldap_get_entries($ldapConn, $result);
